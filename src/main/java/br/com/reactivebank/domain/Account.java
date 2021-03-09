@@ -13,6 +13,7 @@ import org.springframework.data.relational.core.mapping.Table;
  * @since 05/03/21
  */
 @Data
+@Table(value = "tb_account")
 public class Account {
 
     @Id
