@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS tb_account (
 );
 
 CREATE TABLE IF NOT EXISTS tb_operation_type (
-    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY,
     description VARCHAR(255) NOT NULL
 );
 
@@ -18,6 +18,3 @@ CREATE TABLE IF NOT EXISTS tb_transaction (
     foreign key (account_id) references tb_account(id),
     foreign key (operation_type_id) references tb_operation_type(id)
 );
-
-CREATE INDEX idx_account_operation
-ON tb_transaction (account_id, operation_type_id);
