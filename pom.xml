@@ -64,6 +64,13 @@
 			<version>2.3.9</version>
 		</dependency>
 
+		<!-- Open API Dependency -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webflux-ui</artifactId>
+			<version>1.5.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
