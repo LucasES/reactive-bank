@@ -5,6 +5,7 @@ import br.com.reactivebank.domain.Transaction;
 import br.com.reactivebank.dto.AccountDTO;
 import br.com.reactivebank.dto.TransactionDTO;
 import br.com.reactivebank.service.TransactionService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
  * @since 06/03/21
  */
 @RestController
+@Log4j2
 public class TransactionController {
 
     private final TransactionService service;
@@ -27,8 +29,13 @@ public class TransactionController {
     }
 
     @PostMapping("transactions")
-    public Mono<Transaction> save(@RequestBody Mono<TransactionDTO> account){
-        System.out.println("awe");
-        return account.flatMap(this.service::save);
+    public Mono<Transaction> save(@RequestBody Mono<TransactionDTO> transaction){
+        log.info("[TransactionController - save] - Starting with Transaction: " + transaction);
+
+        Mono<Transaction> transactionMono = transaction.flatMap(this.service::save);
+
+        log.info("[TransactionController - save] - Ending with saved Transaction: " + transactionMono);
+
+        return transactionMono;
     }
 }
