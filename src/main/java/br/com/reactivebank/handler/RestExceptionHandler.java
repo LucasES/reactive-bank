@@ -13,6 +13,7 @@ import org.springframework.boot.web.reactive.error.ErrorAttributes;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -36,33 +37,13 @@ import java.util.Map;
  * @version 0.1
  * @since 10/03/21
  */
-@Component
-@Order(-1)
-public class RestExceptionHandler extends
-        AbstractErrorWebExceptionHandler {
+@RestControllerAdvice
+public class RestExceptionHandler {
 
-    public RestExceptionHandler(ErrorAttributes errorAttributes, WebProperties.Resources resources,
-                                ApplicationContext applicationContext, ServerCodecConfigurer configurer) {
-        super(errorAttributes, resources, applicationContext);
-        this.setMessageWriters(configurer.getWriters());
+    @ExceptionHandler(ConversionFailedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> handleConnversion(RuntimeException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    @Override
-    protected RouterFunction<ServerResponse> getRoutingFunction(
-            ErrorAttributes errorAttributes) {
-
-        return RouterFunctions.route(
-                RequestPredicates.all(), this::renderErrorResponse);
-    }
-
-    private Mono<ServerResponse> renderErrorResponse(
-            ServerRequest request) {
-
-        Map<String, Object> errorPropertiesMap = getErrorAttributes(request,
-                ErrorAttributeOptions.defaults());
-
-        return ServerResponse.status(HttpStatus.BAD_REQUEST)
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(errorPropertiesMap));
-    }
 }

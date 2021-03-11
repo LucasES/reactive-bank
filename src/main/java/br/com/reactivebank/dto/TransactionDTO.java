@@ -2,6 +2,7 @@ package br.com.reactivebank.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
  * @since 09/03/21
  */
 @Data
+@ToString
 public class TransactionDTO {
 
     @JsonProperty("account_id")

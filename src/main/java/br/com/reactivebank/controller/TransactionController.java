@@ -3,6 +3,10 @@ package br.com.reactivebank.controller;
 import br.com.reactivebank.domain.Transaction;
 import br.com.reactivebank.dto.TransactionDTO;
 import br.com.reactivebank.service.TransactionService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,14 +24,16 @@ import javax.validation.Valid;
  */
 @RestController
 @Log4j2
+@AllArgsConstructor
 public class TransactionController {
 
     private final TransactionService service;
 
-    public TransactionController(TransactionService service) {
-        this.service = service;
-    }
-
+    @Operation(summary = "Save a new transaction")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "The account by id"),
+            @ApiResponse(responseCode = "500", description = "An exception was thrown"),
+    })
     @PostMapping("transactions")
     public Mono<Transaction> save(@Valid @RequestBody TransactionDTO transaction){
         log.info("[TransactionController - save] - Starting with Transaction: " + transaction);
