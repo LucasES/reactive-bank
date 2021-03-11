@@ -9,7 +9,8 @@ O projeto trata-se de um projeto de banco onde é possível realizar algumas ope
 
 ## Criado com
 
-* 	[Maven](https://maven.apache.org/) - Dependency Management
+* 	[Maven](https://www.docker.com/) - Docker
+* 	[Docker](https://maven.apache.org/) - Dependency Management
 * 	[JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java™ Platform, Standard Edition Development Kit
 * 	[Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 * 	[r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql) - Reactive driver to connect Mysql connection
@@ -81,6 +82,7 @@ Um projeto representativo é representado abaixo:
  │           └── br.com.reactivebank.model
  │           └── br.com.reactivebank.repository
  │           └── br.com.reactivebank.service
+ │           └── br.com.reactivebank.util
  ├── src
  │   └── main
  │       └── resources
@@ -109,6 +111,7 @@ Um projeto representativo é representado abaixo:
 - `handler` — Pacote responsável em centralizar as classes que manipulam o exception handler do projeto.
 - `model` — Camada de modelo responsável em centralizar as entidades do projeto;
 - `repository` — Camada responsável para se comunicar com o banco de dados;
+- `util` — Camada responsável em centralizar todos as classes de util que poderão ser utilizadas em todo o projeto.
 - `service` — Camada responsável em centralizar a lógica de negócio do sistema;
 - `resources/` - Contém todos os recursos estáticos, modelos e arquivos de propriedades.
 - `resources/application.properties` - Ele contém propriedades para todo o aplicativo. O Spring lê as propriedades definidas neste arquivo para configurar seu aplicativo. Você pode definir a porta padrão do servidor, o caminho de contexto do servidor, os URLs do banco de dados etc., neste arquivo.
@@ -116,6 +119,20 @@ Um projeto representativo é representado abaixo:
 - `test/` - centraliza os testes unitários do projeto
 
 - `pom.xml` - arquivo responsável em centralizar as dependências do projeto.
+
+
+## Rodando o projeto com docker
+Este projeto e possível executar com docker. 
+
+Para isso siga os passos abaixo
+ ```
+ 1. Faça um clone do projeto.
+ 2. Execute o comando:
+    docker build -t reactive-bank .
+ 3. Após finalizar o comando anterior execute:
+    docker-compose up -d
+  ```
+
 ## Contribuição
 
 Por favor, leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para obter detalhes sobre nosso código de conduta e o processo de envio de solicitações pull requests.
