@@ -9,8 +9,8 @@ O projeto trata-se de um projeto de banco onde é possível realizar algumas ope
 
 ## Criado com
 
-* 	[Maven](https://www.docker.com/) - Docker
-* 	[Docker](https://maven.apache.org/) - Dependency Management
+* 	[Docker](https://www.docker.com/) - Docker
+* 	[Maven](https://maven.apache.org/) - Dependency Management
 * 	[JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Java™ Platform, Standard Edition Development Kit
 * 	[Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 * 	[r2dbc-mysql](https://github.com/mirromutth/r2dbc-mysql) - Reactive driver to connect Mysql connection
@@ -31,6 +31,13 @@ Para instalar e executar a API é preciso instalar:
 - [JDK 11](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
 - [Maven 3](https://maven.apache.org)
 - [GIT](https://git-scm.com/downloads)
+
+## Collection POSTMAN
+
+Collection utilizadas para consumir os endpoints.
+
+[Download collection POSTMAN](https://www.getpostman.com/collections/af5e3f283eb60971760c
+  )
 
 ## Clonando o projeto
 
