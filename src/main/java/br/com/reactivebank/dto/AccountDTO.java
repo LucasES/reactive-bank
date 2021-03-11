@@ -25,4 +25,7 @@ public class AccountDTO implements Serializable {
 
     @JsonProperty("document_number")
     private String documentNumber;
+
+    @JsonProperty("available_limit_credit")
+    private String availableLimitCredit;
 }

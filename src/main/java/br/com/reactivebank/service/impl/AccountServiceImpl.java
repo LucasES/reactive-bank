@@ -44,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Mono<Account> save(AccountDTO account) {
         if(!ReactiveBankUtil.isValid(account.getDocumentNumber())) {
-            validateObject(ReactiveBankException
+            ReactiveBankUtil.generateMonoError(ReactiveBankException
                             .DOCUMENT_NUMBER_INCORRECT.getDescription()).block();
         }
 
@@ -52,8 +52,5 @@ public class AccountServiceImpl implements AccountService {
         return repository.save(map);
     }
 
-    private <T> Mono <T> validateObject(String msg) {
-        log.info("[AccountServiceImpl - validateObject] - Throwing exception with message: " + msg);
-        return Mono.error(new IllegalArgumentException(msg));
-    }
+
 }

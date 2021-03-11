@@ -7,7 +7,8 @@ package br.com.reactivebank.enums;
  */
 public enum ReactiveBankException {
     DOCUMENT_NUMBER_REQUIRED("The document_number field is required!"),
-    DOCUMENT_NUMBER_INCORRECT("The document_number field isn't valid!");
+    DOCUMENT_NUMBER_INCORRECT("The document_number field isn't valid!"),
+    INSUFICIENT_LIMIT("Insuficient limit for this operation");
 
     private String description;
 
