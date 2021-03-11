@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Mono<ApiError> serverExceptionHandler(Exception ex) {
-        String error = "Error!";
+        String error = "Error";
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, error, ex);
 
         return Mono.just(apiError);

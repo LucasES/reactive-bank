@@ -1,7 +1,9 @@
 package br.com.reactivebank.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -18,6 +20,8 @@ import java.io.Serializable;
  */
 @Data
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class AccountDTO implements Serializable {
 
     private static final long serialVersionUID = 8616889028122220243L;
