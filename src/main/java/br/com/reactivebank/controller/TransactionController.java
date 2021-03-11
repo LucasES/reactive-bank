@@ -2,6 +2,7 @@ package br.com.reactivebank.controller;
 
 import br.com.reactivebank.domain.Transaction;
 import br.com.reactivebank.dto.TransactionDTO;
+import br.com.reactivebank.exception.OperationTypeNotFoundError;
 import br.com.reactivebank.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,7 +36,7 @@ public class TransactionController {
             @ApiResponse(responseCode = "500", description = "An exception was thrown"),
     })
     @PostMapping("transactions")
-    public Mono<Transaction> save(@Valid @RequestBody TransactionDTO transaction){
+    public Mono<Transaction> save(@Valid @RequestBody TransactionDTO transaction) throws OperationTypeNotFoundError {
         log.info("[TransactionController - save] - Starting with Transaction: " + transaction);
 
         Mono<Transaction> transactionMono = this.service.save(transaction);

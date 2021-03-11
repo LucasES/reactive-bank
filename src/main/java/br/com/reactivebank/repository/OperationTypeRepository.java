@@ -1,5 +1,6 @@
 package br.com.reactivebank.repository;
 
+import br.com.reactivebank.domain.OperationType;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +12,5 @@ import org.springframework.stereotype.Repository;
  * @since 10/03/21
  */
 @Repository
-public interface OperationTypeRepository extends ReactiveCrudRepository<OperationTypeRepository, Long> {
+public interface OperationTypeRepository extends ReactiveCrudRepository<OperationType, Long> {
 }
