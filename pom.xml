@@ -13,9 +13,14 @@
 	<version>0.0.1</version>
 	<name>reactive-bank</name>
 	<description>Reactive bank project using Spring Boot Webflux and mongodb</description>
+
 	<properties>
 		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

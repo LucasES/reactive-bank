@@ -1,20 +1,23 @@
-version: '3'
+version: "3"
 services:
-  mysql_db_container:
+  mysqldb:
     image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-    ports:
-      - 3306:3306
-    volumes:
-      - mysql_db_data_container:/var/lib/mysql
-  adminer_container:
-    image: adminer:latest
-    environment:
-      ADMINER_DEFAULT_SERVER: mysql_db_container
-    ports:
-      - 8080:8080
+      MYSQL_DATABASE: bank-db
+    networks:
+      - reactive-bank-mysql
 
-volumes:
-  mysql_db_data_container:
+  reactive-bank:
+    image: reactive-bank
+    networks:
+      - reactive-bank-mysql
+    depends_on:
+      - mysqldb
+    ports:
+      - "8081:8081"
+    restart: always
+
+#Docker Networks
+networks:
+  reactive-bank-mysql:
