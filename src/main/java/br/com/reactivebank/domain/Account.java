@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
+
 /**
  * Account entity.
  *
@@ -21,4 +23,6 @@ public class Account {
 
     @CPF(message = "The document_number is required!")
     private String documentNumber;
+
+    private BigDecimal availableLimitCredit;
 }

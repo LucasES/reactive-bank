@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS tb_account (
      id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
      document_number VARCHAR(11) NOT NULL,
+    available_limit_credit DECIMAL(12, 2) NOT NULL,
      UNIQUE(document_number)
 );
 
