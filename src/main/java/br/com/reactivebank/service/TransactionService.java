@@ -1,10 +1,7 @@
 package br.com.reactivebank.service;
 
-import br.com.reactivebank.domain.Account;
 import br.com.reactivebank.domain.Transaction;
-import br.com.reactivebank.dto.AccountDTO;
 import br.com.reactivebank.dto.TransactionDTO;
-import br.com.reactivebank.exception.OperationTypeNotFoundError;
 import reactor.core.publisher.Mono;
 
 /**
@@ -22,5 +19,5 @@ public interface TransactionService {
      * @param transactionDTO
      * @return Transaction
      */
-    Mono<Transaction> save(final TransactionDTO transactionDTO) throws OperationTypeNotFoundError;
+    Mono<Transaction> save(final TransactionDTO transactionDTO);
 }

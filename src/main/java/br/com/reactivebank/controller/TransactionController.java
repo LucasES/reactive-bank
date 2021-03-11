@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import javax.validation.Valid;
-
 /**
  * REST API controller for Transaction.
  *
@@ -36,7 +34,7 @@ public class TransactionController {
             @ApiResponse(responseCode = "500", description = "An exception was thrown"),
     })
     @PostMapping("transactions")
-    public Mono<Transaction> save(@Valid @RequestBody TransactionDTO transaction) throws OperationTypeNotFoundError {
+    public Mono<Transaction> save(@RequestBody TransactionDTO transaction) {
         log.info("[TransactionController - save] - Starting with Transaction: " + transaction);
 
         Mono<Transaction> transactionMono = this.service.save(transaction);

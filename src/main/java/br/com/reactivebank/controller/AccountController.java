@@ -13,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-import javax.validation.Valid;
-
 /**
  * REST API controller for Account.
  *
@@ -36,7 +34,7 @@ public class AccountController {
     })
     @PostMapping("accounts")
     public Mono<Account> save(@Parameter(description = "Account object to be save")
-                                  @Valid @RequestBody AccountDTO account){
+                                   @RequestBody AccountDTO account){
         log.info("[AccountController - save] - Starting with AccountDTO: " + account);
 
         Mono<Account> accountMono = this.service.save(account);
