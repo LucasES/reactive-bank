@@ -75,11 +75,11 @@ Um projeto representativo é representado abaixo:
  │           ├── br.com.reactivebank.ReactiveBankApplication
  │           ├── br.com.reactivebank.config
  │           ├── br.com.reactivebank.controller
+ │           ├── br.com.reactivebank.domain
  │           ├── br.com.reactivebank.dto
  │           ├── br.com.reactivebank.enums
  │           └── br.com.reactivebank.exception
  │           └── br.com.reactivebank.handler
- │           └── br.com.reactivebank.model
  │           └── br.com.reactivebank.repository
  │           └── br.com.reactivebank.service
  │           └── br.com.reactivebank.util
@@ -95,7 +95,7 @@ Um projeto representativo é representado abaixo:
  ├── bin
  ├── src
  ├── target
- │   └──reactive-bank.jar
+ │   └──reactive-bank-0.0.1.jar
  ├── mvnw
  ├── mvnw.cmd
  ├── pom.xml
